@@ -21,7 +21,7 @@ const initOptionsLocal = {
 };
 
 const runUpload = async (fullPath) => {
-  const arweave = Arweave.init(initOptionsLocal);
+  const arweave = Arweave.init(initOptions);
 
   const key = await arweave.wallets.generate();
 
@@ -44,14 +44,14 @@ const runUpload = async (fullPath) => {
 
   await arweave.transactions.post(tx);
   //   console.log("result", result);
-  console.log("tx", tx);
+//   console.log("tx", tx);
   console.log("url", `http://localhost:1984/${tx.id}`);
   console.log("url", `https://arweave.net/${tx.id}`);
-  // return tx;
+  return tx;
 };
 
 const folder = "./public/images";
-const imgWithUrl = {};
+let imgWithUrl = {};
 
 const iterateFolderFiles = async () => {
   try {
@@ -67,15 +67,17 @@ const iterateFolderFiles = async () => {
       console.log("fileName", fileName);
       console.log("fullPath", fullPath);
       //   console.log('data', data);
-      const { id } = runUpload(fullPath);
+      const { id } = await runUpload(fullPath);
+      const imageUrl = id ? `https://arweave.net/${id}` : undefined;
       imgWithUrl = {
         ...imgWithUrl,
-        [fileName]: id,
+        [fileName]: imageUrl,
       };
     } // End for...of
 
     // All images iterated
     // save imgWithUrl to json
+    console.dir(imgWithUrl);
   } catch (e) {
     // Catch anything bad that happens
     console.error("We've thrown! Whoops!", e);
