@@ -4,7 +4,7 @@ Prerequisites:
 
 - all images need to be in PNG format
 - all images need to be placed in `public/images/` folder
-- CSV data need to be placed in `public/birdzp-data.csv`
+- CSV data need to be placed in `public/birdz-data.csv`
 - !!! You need replace all `;` with `,` in CSV file for proper parsing.
 
 Then run:
