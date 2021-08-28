@@ -109,9 +109,9 @@ const iterateOverItems = async () => {
       // get separately name and props
       const { Name: name, ...props } = row;
       console.log("name", name);
-      const imgFileName = Number.parseInt(name);
+      const nameByNumber = Number.parseInt(name);
 
-      const filePath = folder + imgFileName + ".png";
+      const filePath = folder + nameByNumber + ".png";
       console.log("filePath", filePath);
 
       let newItem = {};
@@ -141,14 +141,14 @@ const iterateOverItems = async () => {
 
         console.log("metadataUrl", metadataUrl);
         newItem = {
-          [name]: {
+          [nameByNumber]: {
             name: getNftName(name),
             uri: metadataUrl,
           },
         };
       } catch (error) {
         newItem = {
-          [name]: undefined,
+          [nameByNumber]: undefined,
         };
       }
 
