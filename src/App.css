@@ -39,13 +39,17 @@
 }
 
 .img {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   margin: 4px 5px;
 }
 
 .img-link {
   position: relative;
+  width: 100px;
+  height: 100px;
+  border: 1px solid white;
+  margin: 4px 5px;
 }
 
 .img-link > span {
@@ -54,5 +58,5 @@
   color: white;
   font-weight: bold;
   top: 0px;
-  font-size: 2em;
+  font-size: 1em;
 }

@@ -27,11 +27,11 @@ function App() {
             return (
               <a
                 className="img-link"
-                href={imgJson[key]}
+                href={imgJson[key].uri}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img className="img" src={imgJson[key]} />
+                {/* <img className="img" src={imgJson[key]} /> */}
                 <span>{key}</span>
               </a>
             );
