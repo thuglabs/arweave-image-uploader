@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -35,4 +31,28 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.img {
+  width: 200px;
+  height: 200px;
+  margin: 4px 5px;
+}
+
+.img-link {
+  position: relative;
+}
+
+.img-link > span {
+  position: absolute;
+  left: 10px;
+  color: white;
+  font-weight: bold;
+  top: 0px;
+  font-size: 2em;
 }

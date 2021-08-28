@@ -10,7 +10,7 @@ const initOptions = {
   logging: false, // Enable network request logging
 };
 
-// run
+// run localy
 // npx @textury/arlocal
 const initOptionsLocal = {
   host: "localhost", // Hostname or IP address for a Arweave host
@@ -42,10 +42,10 @@ const runUpload = async (fullPath) => {
     );
   }
 
+  //   Do we need to post with uploader?
   await arweave.transactions.post(tx);
-  //   console.log("result", result);
-//   console.log("tx", tx);
-  console.log("url", `http://localhost:1984/${tx.id}`);
+
+  //   console.log("url", `http://localhost:1984/${tx.id}`);
   console.log("url", `https://arweave.net/${tx.id}`);
   return tx;
 };
@@ -62,22 +62,42 @@ const iterateFolderFiles = async () => {
     for (const file of files) {
       // Get the full paths
       const fullPath = path.join(folder, file);
-      const fileName = file.replace(".png", "");
       console.log("file", file);
-      console.log("fileName", fileName);
-      console.log("fullPath", fullPath);
-      //   console.log('data', data);
-      const { id } = await runUpload(fullPath);
-      const imageUrl = id ? `https://arweave.net/${id}` : undefined;
-      imgWithUrl = {
-        ...imgWithUrl,
-        [fileName]: imageUrl,
-      };
-    } // End for...of
+
+      //   skip any file other than PNG
+      if (file.includes(".png")) {
+        const fileName = file.replace(".png", "");
+        //   console.log("fileName", fileName);
+        //   console.log("fullPath", fullPath);
+        let newItem = {};
+
+        try {
+          const { id } = await runUpload(fullPath);
+          const imageUrl = id ? `https://arweave.net/${id}` : undefined;
+          newItem = {
+            [fileName]: imageUrl,
+          };
+        } catch (error) {
+          newItem = {
+            [fileName]: undefined,
+          };
+        }
+
+        imgWithUrl = {
+          ...imgWithUrl,
+          ...newItem,
+        };
+      } else {
+          console.log('skipped.');
+      }
+    }
 
     // All images iterated
-    // save imgWithUrl to json
     console.dir(imgWithUrl);
+
+    // Save data to json in /public/
+    const data = JSON.stringify(imgWithUrl);
+    fs.writeFileSync("./public/arweave-images.json", data);
   } catch (e) {
     // Catch anything bad that happens
     console.error("We've thrown! Whoops!", e);
