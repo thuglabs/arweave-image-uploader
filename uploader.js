@@ -41,7 +41,7 @@ const getMetadata = (name, imageUrl, attributes) => ({
     maxSupply: 0,
     creators: [
       {
-        address: "CzrE3LhijwcmvsXZa8YavqgR9EzW3UGqoSWZKwGpZVqM",
+        address: "CBBUMHRmbVUck99mTCip5sHP16kzGj3QTYB8K3XxwmQx",
         share: 100,
       },
     ],
@@ -171,7 +171,7 @@ const iterateOverItems = async () => {
 const readCsv = async () => {
   key = await arweave.wallets.generate();
 
-  fs.createReadStream(path.resolve(__dirname, "public", "birdz-data.csv"))
+  fs.createReadStream(path.resolve(__dirname, "public", "data.csv"))
     .pipe(csv())
     .on("data", (data) => results.push(data))
     .on("end", () => {
