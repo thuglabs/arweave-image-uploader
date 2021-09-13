@@ -1,9 +1,9 @@
 Name,Background Color,Head Color,Neck Color
 0000,palegreen,lightblue,lightslategray
 0001,coral,lightgoldenrodyellow,gray
-0002,coral,wheat,darkseagreen,standard
-0003,khaki,silver,lightslategray,
-0004,palegreen,silver,darkkhaki,
+0002,coral,wheat,darkseagreen
+0003,khaki,silver,lightslategray
+0004,palegreen,silver,darkkhaki
 0005,aquamarine,paleturquoise,cadetblue
 0006,khaki,ivory,gray
 0007,thistle,wheat,slategray

@@ -16,7 +16,7 @@ const initOptions = {
   logging: false, // Enable network request logging
 };
 
-const getNftName = (name) => `THUG #${name}`;
+const getNftName = (name) => `ART #${name}`;
 
 const getMetadata = (name, imageUrl, attributes) => ({
   name: getNftName(name),
@@ -27,7 +27,7 @@ const getMetadata = (name, imageUrl, attributes) => ({
   external_url: "https://www.thugbirdz.com/",
   attributes,
   collection: {
-    name: "OG Collection",
+    name: "Test Collection",
     family: "thugbirdz",
   },
   properties: {
