@@ -21,6 +21,25 @@ node run upload
 
 The result json file will be saved to `./public/arweave-images.json`. This files consists of arrays of NFT objects with name / uri fields
 
+## Result Sample
+
+```
+{
+    "0": {
+        "name": "ART #0000",
+        "uri": "https://arweave.net/eR4wgSnWusIG-xF2BZzsiOwVehQsvfCT8VAUC4NHQ5Y"
+    },
+    "1": {
+        "name": "ART #0001",
+        "uri": "https://arweave.net/NOvV7akJDBFZogZOKxDMwIhOauiDNhVqnIfUqJmmPR8"
+    },
+    "2": {
+        "name": "ART #0002",
+        "uri": "https://arweave.net/q6RS0m0cdoieJbbXI4H1A4yJcDeFi97YF3fHVhn-h9M"
+    }
+}
+```
+
 
 # TODO: More
 
