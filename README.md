@@ -3,6 +3,10 @@
 This package can be used to create metadata files on the Arweave network. It first uploads NFT image and then creates a metadata JSON file for this NFT using this image and default fields from file `uploader.js`.
 It is created with an idea to be used with Solana blockchain and uses [Metaplex NFT Standard](https://docs.metaplex.com/nft-standard) but it isn't bound to Solana in any case and can be used with any other blockchain as well.
 
+## ⚠️ Important note
+
+I've disabled line which generates [new AR wallet](https://github.com/thuglabs/arweave-image-uploader/blob/main/uploader.js#L175) for the script use. From my understanding, newly generated wallets have 0 balance and shouldn't be able to approve TX on Arweave. Despite of it the script works well 🤷🏻‍♂️. So, to avoid any possible issues I've disabled it. Consider to use local Arweave wallet instead or this tool instead: [solana-nft-uploader by @moshthepitt](https://github.com/moshthepitt/solana-nft-uploader).
+
 Prerequisites:
 
 - all images need to be in PNG format
