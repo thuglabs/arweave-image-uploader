@@ -7,6 +7,8 @@ It is created with an idea to be used with Solana blockchain and uses [Metaplex 
 
 I've disabled line which generates [new AR wallet](https://github.com/thuglabs/arweave-image-uploader/blob/main/uploader.js#L175) for the script use. From my understanding, newly generated wallets have 0 balance and shouldn't be able to approve TX on Arweave. Despite of it the script works well 🤷🏻‍♂️. So, to avoid any possible issues I've disabled it. Consider to use local Arweave wallet instead or this tool instead: [solana-nft-uploader by @moshthepitt](https://github.com/moshthepitt/solana-nft-uploader).
 
+## Use
+
 Prerequisites:
 
 - all images need to be in PNG format
