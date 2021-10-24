@@ -169,7 +169,10 @@ const iterateOverItems = async () => {
 };
 
 const readCsv = async () => {
-  key = await arweave.wallets.generate();
+  //   Consider to use local wallet instead of generated one.
+  //.  I'm not sure how this works, since newly generated wallet have 0 balance. 🤷🏻‍♂️
+  //.  So, I comment out this line for now.
+  //   key = await arweave.wallets.generate();
 
   fs.createReadStream(path.resolve(__dirname, "public", "data.csv"))
     .pipe(csv())
